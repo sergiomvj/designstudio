@@ -1,6 +1,6 @@
 # tools/pack
 
-Local packaging control plane for Open Design.
+Local packaging control plane for FBR-Design Studio.
 
 The active slice is mac-first local packaging and smoke lifecycle control:
 
@@ -16,8 +16,8 @@ The active slice is mac-first local packaging and smoke lifecycle control:
 - `tools-pack mac cleanup`
 
 Build artifacts are namespace-scoped under `.tmp/tools-pack/out/mac/namespaces/<namespace>/`.
-Release artifacts keep the canonical `Open Design.app` bundle shape; local `tools-pack install` copies it as
-`Open Design.<namespace>.app` so developer namespaces can coexist without affecting runtime data/log/cache paths.
+Release artifacts keep the canonical `FBR-Design Studio.app` bundle shape; local `tools-pack install` copies it as
+`FBR-Design Studio.<namespace>.app` so developer namespaces can coexist without affecting runtime data/log/cache paths.
 
 Packaged runtime state is namespace-scoped under `.tmp/tools-pack/runtime/mac/namespaces/<namespace>/`:
 
@@ -103,7 +103,7 @@ Build artifacts are namespace-scoped under `.tmp/tools-pack/out/linux/namespaces
 
 Local installs use XDG paths:
 
-- AppImage: `~/.local/bin/Open-Design.<namespace>.AppImage`
+- AppImage: `~/.local/bin/FBR-DesignStudio.<namespace>.AppImage`
 - Menu entry: `~/.local/share/applications/open-design-<namespace>.desktop`
 - Icon: `~/.local/share/icons/hicolor/512x512/apps/open-design-<namespace>.png`
 

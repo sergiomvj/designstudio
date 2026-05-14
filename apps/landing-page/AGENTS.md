@@ -6,7 +6,7 @@ records module-level boundaries for `apps/landing-page/`.
 ## Purpose
 
 `apps/landing-page` is a stand-alone static Astro site that renders
-the Open Design marketing surface in the **Atelier Zero** style and
+the FBR-Design Studio marketing surface in the **Atelier Zero** style and
 ships per-facet catalog pages for every skill, design system, craft
 principle, and live-artifact template in the repo root.
 
@@ -129,5 +129,5 @@ pnpm --filter @open-design/landing-page build        # static export → out/
 - New section added to the canonical landing page → port it into
   `app/page.tsx` and `app/globals.css` keeping lockstep with
   `skills/open-design-landing/example.html`.
-- Brand re-keying for a non-Open-Design tenant → fork the app, update
+- Brand re-keying for a non-FBR-DesignStudio tenant → fork the app, update
   copy, swap PNGs. Do not parameterize this app for multi-tenancy.

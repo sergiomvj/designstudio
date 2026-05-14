@@ -13,7 +13,7 @@ function makeRequest(body: unknown): Request {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-Open-Design-Telemetry': 'langfuse-ingestion-v1',
+      'X-FBR-DesignStudio-Telemetry': 'langfuse-ingestion-v1',
     },
     body: JSON.stringify(body),
   });
@@ -87,7 +87,7 @@ describe('telemetry worker', () => {
     fetchSpy.mockRestore();
   });
 
-  it('rejects requests without the Open Design client marker', async () => {
+  it('rejects requests without the FBR-Design Studio client marker', async () => {
     const response = await worker.fetch(
       new Request('https://telemetry.open-design.ai/api/langfuse', {
         method: 'POST',

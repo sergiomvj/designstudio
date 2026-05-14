@@ -109,7 +109,7 @@ async function runFixture(options: {
   const platformName = options.platformName ?? "win32";
   const appOutDir = join(root, "builder", platformName === "darwin" ? "mac-arm64" : "win-unpacked");
   const resourcesRoot = platformName === "darwin"
-    ? join(appOutDir, "Open Design.app", "Contents", "Resources")
+    ? join(appOutDir, "FBR-Design Studio.app", "Contents", "Resources")
     : join(appOutDir, "resources");
   const auditReportPath = join(root, "audit.json");
   const configPath = join(root, "config.json");
@@ -149,7 +149,7 @@ async function runFixture(options: {
     await runWebStandaloneAfterPack({
       appOutDir,
       electronPlatformName: platformName,
-      packager: { appInfo: { productFilename: "Open Design" } },
+      packager: { appInfo: { productFilename: "FBR-Design Studio" } },
     });
   } catch (error) {
     await rm(root, { force: true, recursive: true });

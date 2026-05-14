@@ -160,7 +160,7 @@ winDescribe('packaged windows runtime smoke', () => {
       expect(basename(install.startMenuShortcutPath)).toBe(`${installIdentity.displayName}.lnk`);
       expect(install.registryEntries.length).toBeGreaterThan(0);
       expect(JSON.stringify(install.registryEntries)).toContain(installIdentity.displayName);
-      expect(JSON.stringify(install.registryEntries)).toContain(`Open Design-${installIdentity.namespaceToken}`);
+      expect(JSON.stringify(install.registryEntries)).toContain(`FBR-Design Studio-${installIdentity.namespaceToken}`);
       expect(install.installPayload.fileCount).toBeGreaterThan(0);
       expect(install.installPayload.totalBytes).toBeGreaterThan(0);
       expect(install.installPayload.topLevel.length).toBeGreaterThan(0);
@@ -482,10 +482,10 @@ function resolveFromWorkspace(filePath: string): string {
 function resolveInstallIdentity(value: string): { displayName: string; namespaceToken: string } {
   const namespaceToken = value.replace(/[^A-Za-z0-9._-]+/g, '-');
   const displayName = /(^|[-_.])beta($|[-_.])/i.test(value)
-    ? 'Open Design Beta'
+    ? 'FBR-Design Studio Beta'
     : value === 'default'
-      ? 'Open Design'
-      : `Open Design ${namespaceToken}`;
+      ? 'FBR-Design Studio'
+      : `FBR-Design Studio ${namespaceToken}`;
   return { displayName, namespaceToken };
 }
 

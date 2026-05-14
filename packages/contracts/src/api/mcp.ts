@@ -1,6 +1,6 @@
 // External MCP (Model Context Protocol) server configuration.
 //
-// Open Design acts as an MCP CLIENT here: the user configures one or more
+// FBR-Design Studio acts as an MCP CLIENT here: the user configures one or more
 // external MCP servers (stdio, SSE, or streamable HTTP), and the daemon
 // surfaces those servers to the underlying agent (Claude Code, ACP agents,
 // etc.) at spawn time so the agent can call their tools.

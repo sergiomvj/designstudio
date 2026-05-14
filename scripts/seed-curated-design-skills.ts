@@ -1054,7 +1054,7 @@ function buildBody(s: CuratedSkill): string {
   lines.push('## How to use');
   lines.push('');
   lines.push(
-    'This catalogue entry advertises the skill in Open Design so the agent',
+    'This catalogue entry advertises the skill in FBR-Design Studio so the agent',
   );
   lines.push(
     'discovers it during planning. To run the full upstream workflow with',

@@ -1,7 +1,7 @@
 const DEFAULT_LANGFUSE_BASE_URL = 'https://us.cloud.langfuse.com';
 const MAX_BODY_BYTES = 1024 * 1024;
 const MAX_BATCH_EVENTS = 100;
-const RELAY_MARKER_HEADER = 'X-Open-Design-Telemetry';
+const RELAY_MARKER_HEADER = 'X-FBR-DesignStudio-Telemetry';
 const RELAY_MARKER_VALUE = 'langfuse-ingestion-v1';
 const ALLOWED_EVENT_TYPES = new Set([
   'trace-create',

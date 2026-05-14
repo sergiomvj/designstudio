@@ -53,7 +53,7 @@ export function Header({
           <span className='brand-mark'>
             <img src='/logo.png' alt='' width={36} height={36} />
           </span>
-          <span>Open Design</span>
+          <span>FBR-Design Studio</span>
           <span className='brand-meta'>
             <b>Studio Nº 01</b>Berlin / Open / Earth
           </span>
@@ -91,7 +91,7 @@ export function Header({
           <a
             className='nav-cta ghost'
             href={REPO_RELEASES}
-            aria-label='Download Open Design desktop'
+            aria-label='Download FBR-Design Studio desktop'
             title='Download the desktop app'
             {...ext}
           >
@@ -100,7 +100,7 @@ export function Header({
           <a
             className='nav-cta'
             href={REPO}
-            aria-label='Star Open Design on GitHub'
+            aria-label='Star FBR-Design Studio on GitHub'
             title='Click to star us on GitHub'
             {...ext}
           >

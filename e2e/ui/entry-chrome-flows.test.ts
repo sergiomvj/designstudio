@@ -42,7 +42,7 @@ test('pet pill toggle hides and shows the pet rail', async ({ page }) => {
   await page.goto('/');
   await expect(page.getByTestId('new-project-panel')).toBeVisible();
   await expect(page.locator('.app-chrome-header')).toBeVisible();
-  await expect(page.locator('.app-chrome-header .app-chrome-name')).toHaveText('Open Design');
+  await expect(page.locator('.app-chrome-header .app-chrome-name')).toHaveText('FBR-Design Studio');
   await expect(page.locator('.entry-brand')).toHaveCount(0);
   await expect(page.locator('.pet-rail')).toBeVisible();
 

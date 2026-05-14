@@ -1,9 +1,9 @@
-# Open Design
+# FBR-Design Studio
 
 > **L’alternative open source à [Claude Design][cd].** Local-first, déployable sur le web, BYOK à chaque couche : vos CLI de coding agents détectées automatiquement dans le `PATH` deviennent le design engine, piloté par les catalogues de **Skills** et de **Design Systems** du repo. Aucune CLI ? Le proxy BYOK multi-provider exécute la même boucle, sans spawn local.
 
 <p align="center">
-  <img src="docs/assets/banner.png" alt="Open Design : couverture éditoriale, design avec l’agent sur votre laptop" width="100%" />
+  <img src="docs/assets/banner.png" alt="FBR-Design Studio : couverture éditoriale, design avec l’agent sur votre laptop" width="100%" />
 </p>
 
 <p align="center">
@@ -35,7 +35,7 @@
 
 [Claude Design][cd] d’Anthropic, lancé le 17 avril 2026 avec Opus 4.7, a montré ce qui se passe lorsqu’un LLM cesse de produire seulement du texte et commence à livrer des design artifacts. Le produit est devenu viral, tout en restant closed-source, paid-only, cloud-only et lié au modèle comme aux Skills d’Anthropic. Aucun checkout possible, aucun self-hosting, aucun déploiement Vercel, aucun remplacement par votre propre agent.
 
-**Open Design (OD) est l’alternative open source.** Même boucle, même mental model artifact-first, sans lock-in. Nous ne livrons pas d’agent : les meilleurs coding agents vivent déjà sur votre machine. OD les branche sur un workflow de design piloté par des Skills, exécutable localement avec `pnpm tools-dev`, déployable sur Vercel côté web, avec BYOK à chaque couche.
+**FBR-Design Studio (OD) est l’alternative open source.** Même boucle, même mental model artifact-first, sans lock-in. Nous ne livrons pas d’agent : les meilleurs coding agents vivent déjà sur votre machine. OD les branche sur un workflow de design piloté par des Skills, exécutable localement avec `pnpm tools-dev`, déployable sur Vercel côté web, avec BYOK à chaque couche.
 
 Tapez `make me a magazine-style pitch deck for our seed round`. Le question form interactif apparaît avant que le modèle n’improvise le moindre pixel. L’agent choisit l’une des cinq directions visuelles soigneusement sélectionnées. Un plan `TodoWrite` live arrive dans l’UI. Le daemon crée un vrai dossier projet sur disque avec un seed template, une layout library et une checklist de self-check. L’agent les lit, le pre-flight est obligatoire, puis il lance une critique en cinq dimensions sur sa propre sortie et émet un seul `<artifact>`, rendu quelques secondes plus tard dans une iframe sandboxée.
 
@@ -303,7 +303,7 @@ Chaque couche est composable. Chaque couche est un fichier éditable. Lisez [`ap
 
 ### Télécharger l'application desktop (aucun build requis)
 
-Le moyen le plus rapide d'essayer Open Design est l'application desktop préconstruite — pas de Node, pas de pnpm, pas de clone :
+Le moyen le plus rapide d'essayer FBR-Design Studio est l'application desktop préconstruite — pas de Node, pas de pnpm, pas de clone :
 
 - **[open-design.ai](https://open-design.ai/)** — page de téléchargement officielle
 - **[Releases GitHub](https://github.com/nexu-io/open-design/releases)**
@@ -398,7 +398,7 @@ open-design/
 │
 ├── packages/
 │   ├── contracts/                 ← contrats app partagés web/daemon
-│   ├── sidecar-proto/             ← contrat du sidecar protocol Open Design
+│   ├── sidecar-proto/             ← contrat du sidecar protocol FBR-Design Studio
 │   ├── sidecar/                   ← primitives runtime sidecar génériques
 │   └── platform/                  ← primitives process/platform génériques
 │
@@ -546,7 +546,7 @@ Cliquez sur un thumbnail pour lire le MP4 rendu. Set complet → [`prompt-templa
 
 ### HyperFrames · motion graphics HTML→MP4 (11 templates prêts à reproduire)
 
-[**`heygen-com/hyperframes`**](https://github.com/heygen-com/hyperframes) est le framework vidéo open source agent-native de HeyGen : vous, ou l’agent, écrivez HTML + CSS + GSAP, HyperFrames rend un MP4 déterministe via Chrome headless + FFmpeg. Open Design le livre comme modèle vidéo de première classe (`hyperframes-html`) relié au dispatch daemon, plus le skill `skills/hyperframes/` qui enseigne à l’agent le contrat de timeline, les transitions de scènes, les patterns audio-réactifs, captions/TTS et les catalog blocks (`npx hyperframes add <slug>`).
+[**`heygen-com/hyperframes`**](https://github.com/heygen-com/hyperframes) est le framework vidéo open source agent-native de HeyGen : vous, ou l’agent, écrivez HTML + CSS + GSAP, HyperFrames rend un MP4 déterministe via Chrome headless + FFmpeg. FBR-Design Studio le livre comme modèle vidéo de première classe (`hyperframes-html`) relié au dispatch daemon, plus le skill `skills/hyperframes/` qui enseigne à l’agent le contrat de timeline, les transitions de scènes, les patterns audio-réactifs, captions/TTS et les catalog blocks (`npx hyperframes add <slug>`).
 
 Onze prompts hyperframes sont fournis sous [`prompt-templates/video/hyperframes-*.json`](prompt-templates/video/), chacun comme brief concret pour un archétype précis :
 
@@ -601,7 +601,7 @@ Tout le mécanisme ci-dessous est le playbook [`huashu-design`](https://github.c
 
 ## Comparaison
 
-| Axe | [Claude Design][cd] (Anthropic) | [Open CoDesign][ocod] | **Open Design** |
+| Axe | [Claude Design][cd] (Anthropic) | [Open CoDesign][ocod] | **FBR-Design Studio** |
 |---|---|---|---|
 | Licence | Fermé | MIT | **Apache-2.0** |
 | Format | Web (claude.ai) | Desktop (Electron) | **Web app + daemon local** |
@@ -702,7 +702,7 @@ C’est une implémentation encore jeune, mais la boucle fermée fonctionne de b
 ## Star us
 
 <p align="center">
-  <a href="https://github.com/nexu-io/open-design"><img src="docs/assets/star-us.png" alt="Star Open Design on GitHub : github.com/nexu-io/open-design" width="100%" /></a>
+  <a href="https://github.com/nexu-io/open-design"><img src="docs/assets/star-us.png" alt="Star FBR-Design Studio on GitHub : github.com/nexu-io/open-design" width="100%" /></a>
 </p>
 
 Si ce projet vous a économisé trente minutes, donnez-lui une ★. Les stars ne paient pas le loyer, mais elles indiquent au prochain designer, agent ou contributeur que cette expérience mérite son attention : [github.com/nexu-io/open-design](https://github.com/nexu-io/open-design).
@@ -719,10 +719,10 @@ Guide complet, critères de merge, style de code et refus fréquents → [`CONTR
 
 ## Contributeurs
 
-Merci à toutes les personnes qui font avancer Open Design : code, docs, retours, nouveaux Skills, nouveaux Design Systems ou issues bien ciblées. Chaque vraie contribution compte.
+Merci à toutes les personnes qui font avancer FBR-Design Studio : code, docs, retours, nouveaux Skills, nouveaux Design Systems ou issues bien ciblées. Chaque vraie contribution compte.
 
 <a href="https://github.com/nexu-io/open-design/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=nexu-io/open-design&cache_bust=2026-05-13" alt="Contributeurs Open Design" />
+  <img src="https://contrib.rocks/image?repo=nexu-io/open-design&cache_bust=2026-05-13" alt="Contributeurs FBR-Design Studio" />
 </a>
 
 Si vous avez livré votre première PR, bienvenue. Le label [`good-first-issue`/`help-wanted`](https://github.com/nexu-io/open-design/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22%2C%22help+wanted%22) est le point d’entrée.
@@ -730,7 +730,7 @@ Si vous avez livré votre première PR, bienvenue. Le label [`good-first-issue`/
 ## Activité du dépôt
 
 <picture>
-  <img alt="Open Design : métriques du dépôt" src="docs/assets/github-metrics.svg" />
+  <img alt="FBR-Design Studio : métriques du dépôt" src="docs/assets/github-metrics.svg" />
 </picture>
 
 Le SVG ci-dessus est régénéré chaque jour par [`.github/workflows/metrics.yml`](.github/workflows/metrics.yml) avec [`lowlighter/metrics`](https://github.com/lowlighter/metrics). Lancez un refresh manuel depuis l’onglet **Actions** si vous le voulez plus tôt ; pour des plugins plus riches, ajoutez un secret `METRICS_TOKEN` avec un PAT fine-grained.
@@ -741,7 +741,7 @@ Le SVG ci-dessus est régénéré chaque jour par [`.github/workflows/metrics.ym
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&theme=dark&cache_bust=2026-05-13" />
     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-05-13" />
-    <img alt="Historique des stars Open Design" src="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-05-13" />
+    <img alt="Historique des stars FBR-Design Studio" src="https://api.star-history.com/svg?repos=nexu-io/open-design&type=Date&cache_bust=2026-05-13" />
   </picture>
 </a>
 

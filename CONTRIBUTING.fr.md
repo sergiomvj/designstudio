@@ -1,4 +1,4 @@
-# Contribuer à Open Design
+# Contribuer à FBR-Design Studio
 
 Merci d'envisager de contribuer. OD reste volontairement petit : l'essentiel
 de la valeur vit dans des **fichiers** (Skills, Design Systems, morceaux de

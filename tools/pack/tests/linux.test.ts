@@ -169,7 +169,7 @@ describe("buildDockerArgs", () => {
 describe("renderDesktopTemplate", () => {
   const template = `[Desktop Entry]
 Type=Application
-Name=Open Design (@@NAMESPACE@@)
+Name=FBR-Design Studio (@@NAMESPACE@@)
 Exec=env OD_PACKAGED_NAMESPACE=@@NAMESPACE@@ @@EXEC_PATH@@ --appimage-extract-and-run %U
 Icon=@@ICON_PATH@@
 MimeType=x-scheme-handler/od;
@@ -178,12 +178,12 @@ MimeType=x-scheme-handler/od;
   it("substitutes all @@TOKEN@@ placeholders", () => {
     const out = renderDesktopTemplate(template, {
       namespace: "default",
-      execPath: "/home/u/.local/bin/Open-Design.default.AppImage",
+      execPath: "/home/u/.local/bin/FBR-DesignStudio.default.AppImage",
       iconName: "open-design-default",
     });
-    expect(out).toContain("Name=Open Design (default)");
+    expect(out).toContain("Name=FBR-Design Studio (default)");
     expect(out).toContain(
-      "Exec=env OD_PACKAGED_NAMESPACE=default /home/u/.local/bin/Open-Design.default.AppImage --appimage-extract-and-run %U",
+      "Exec=env OD_PACKAGED_NAMESPACE=default /home/u/.local/bin/FBR-DesignStudio.default.AppImage --appimage-extract-and-run %U",
     );
     expect(out).toContain("Icon=open-design-default");
   });
@@ -233,7 +233,7 @@ describe("sanitizeNamespace", () => {
 });
 
 describe("matchesAppImageProcess", () => {
-  const installPath = "/home/u/.local/bin/Open-Design.default.AppImage";
+  const installPath = "/home/u/.local/bin/FBR-DesignStudio.default.AppImage";
 
   it("matches FUSE-mode (executable === installPath)", () => {
     const ok = matchesAppImageProcess(
@@ -279,7 +279,7 @@ describe("matchesAppImageProcess", () => {
     const ok = matchesAppImageProcess(
       {
         pid: 1234,
-        executable: "/tmp/appimage_extracted_fe548e54/Open Design",
+        executable: "/tmp/appimage_extracted_fe548e54/FBR-Design Studio",
         env: { APPIMAGE: installPath },
       },
       installPath,
@@ -291,7 +291,7 @@ describe("matchesAppImageProcess", () => {
     const ok = matchesAppImageProcess(
       {
         pid: 1234,
-        executable: "/tmp/appimage_extracted_fe548e54/Open Design",
+        executable: "/tmp/appimage_extracted_fe548e54/FBR-Design Studio",
         env: { APPIMAGE: "/elsewhere/Other.AppImage" },
       },
       installPath,

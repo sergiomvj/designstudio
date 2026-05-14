@@ -1,5 +1,5 @@
 name: 🐛 Bug report
-description: Something isn't working as expected in Open Design.
+description: Something isn't working as expected in FBR-Design Studio.
 labels: ["bug"]
 body:
   - type: markdown
@@ -26,7 +26,7 @@ body:
       label: Steps to reproduce
       description: Minimal steps that reliably reproduce the problem.
       placeholder: |
-        1. Open Open Design
+        1. Open FBR-Design Studio
         2. Click ...
         3. See error
     validations:
@@ -43,7 +43,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: Open Design version
+      label: FBR-Design Studio version
       description: Find this in the app's About menu, or run `od --version`.
       placeholder: e.g. 0.7.0
     validations:

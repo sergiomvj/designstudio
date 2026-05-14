@@ -80,7 +80,7 @@ export function registerMcpRoutes(app: Express, ctx: RegisterMcpRoutesDeps) {
     res.json(payload);
   });
 
-  // External MCP server configuration. Open Design connects to these as a
+  // External MCP server configuration. FBR-Design Studio connects to these as a
   // CLIENT and surfaces their tools to the underlying agent at spawn time.
   // GET returns user-saved entries plus the built-in template list so the UI
   // can render the "Add MCP server" picker without a second round-trip.
@@ -307,7 +307,7 @@ function renderOAuthResultPage(opts: any) {
   const title = ok ? 'Connected' : 'Authorization failed';
   const heading = ok ? '✅ Connected' : '⚠️ Authorization failed';
   const body = ok
-    ? `Your MCP server <code>${escapeHtml(opts.serverId ?? '')}</code> is now connected. You can close this tab and return to Open Design.`
+    ? `Your MCP server <code>${escapeHtml(opts.serverId ?? '')}</code> is now connected. You can close this tab and return to FBR-Design Studio.`
     : escapeHtml(opts.message ?? 'Authorization could not be completed.');
   const accent = ok ? '#1a7f37' : '#cf222e';
   const payload = ok
@@ -317,7 +317,7 @@ function renderOAuthResultPage(opts: any) {
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>${escapeHtml(title)} — Open Design</title>
+<title>${escapeHtml(title)} — FBR-Design Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root { color-scheme: light dark; }

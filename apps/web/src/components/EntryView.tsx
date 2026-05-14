@@ -572,8 +572,8 @@ export function EntryView({
               href="https://discord.com/invite/qhbcCH8Am4"
               target="_blank"
               rel="noreferrer noopener"
-              title="Join the Open Design Discord community"
-              aria-label="Join the Open Design Discord community"
+              title="Join the FBR-Design Studio Discord community"
+              aria-label="Join the FBR-Design Studio Discord community"
             >
               <Icon name="discord" size={12} />
             </a>

@@ -469,7 +469,7 @@ if (latestStable != null && compareVersions(packagedParsed, latestStable.parsed)
 }
 
 let releaseVersion = packagedVersion;
-let releaseName = `Open Design ${packagedVersion}`;
+let releaseName = `FBR-Design Studio ${packagedVersion}`;
 let nightlyNumber = "";
 let stateSource = channel === "nightly" ? "R2 metadata.json" : "GitHub Releases";
 
@@ -511,7 +511,7 @@ if (channel === "nightly") {
 
   nightlyNumber = String(nextNightlyNumber);
   releaseVersion = `${packagedVersion}.nightly.${nightlyNumber}`;
-  releaseName = `Open Design Nightly ${releaseVersion}`;
+  releaseName = `FBR-Design Studio Nightly ${releaseVersion}`;
   console.log(`[release-stable] latest nightly: ${latestNightly.nightlyVersion}`);
 } else {
   const stableNightly = await validateStableNightlyMetadata({

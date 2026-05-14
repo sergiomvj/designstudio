@@ -1,6 +1,6 @@
-# NotebookLM: export issues/PRs from Open Design
+# NotebookLM: export issues/PRs from FBR-Design Studio
 
-Open Design gets a lot of feedback via GitHub Issues + PRs. If you want NotebookLM to help with:
+FBR-Design Studio gets a lot of feedback via GitHub Issues + PRs. If you want NotebookLM to help with:
 
 - support answers (with citations)
 - clustering + taxonomy of user scenarios
