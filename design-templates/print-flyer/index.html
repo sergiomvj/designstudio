@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyer A5 Print Template</title>
+    <style>
+        /*
+          Setup de impressão com CSS Paged Media para formato A5
+          A5 = 148 x 210 mm (approx 5.8in x 8.3in)
+          Adicionando 3mm de bleed (~0.12in)
+        */
+        @page {
+            size: 6.04in 8.54in; 
+            margin: 0;
+        }
+
+        :root {
+            --brand-primary: #1E3A8A;
+            --brand-secondary: #EAB308;
+            --brand-light: #F3F4F6;
+            --brand-font: 'Inter', sans-serif;
+            --bleed-margin: 0.12in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--brand-font);
+            background-color: #e5e5e5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .flyer-canvas {
+            width: 6.04in;
+            height: 8.54in;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .safe-area {
+            position: absolute;
+            top: 0.25in;
+            left: 0.25in;
+            right: 0.25in;
+            bottom: 0.25in;
+            border: 1px dashed rgba(0,0,0,0.2);
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        @media print {
+            body { background: none; }
+            .flyer-canvas { box-shadow: none; width: 100%; height: 100%; }
+            .safe-area { border: none; }
+        }
+
+        /* Design do Flyer */
+        .flyer-header {
+            background: var(--brand-primary);
+            color: white;
+            padding: 0.5in 0.25in;
+            text-align: center;
+        }
+
+        .flyer-header h1 {
+            font-size: 32pt;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-bottom: 0.1in;
+        }
+
+        .flyer-header p {
+            color: var(--brand-secondary);
+            font-size: 14pt;
+            font-weight: 500;
+        }
+
+        .flyer-body {
+            padding: 0.4in 0.3in;
+            flex-grow: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 0.2in;
+        }
+
+        .feature-list li {
+            font-size: 12pt;
+            margin-bottom: 0.15in;
+            padding-left: 0.2in;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--brand-secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .flyer-footer {
+            background: var(--brand-light);
+            padding: 0.3in;
+            text-align: center;
+            font-size: 10pt;
+            color: #555;
+            border-top: 5px solid var(--brand-secondary);
+        }
+
+        .phone {
+            font-size: 16pt;
+            font-weight: bold;
+            color: var(--brand-primary);
+            margin: 0.05in 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flyer-canvas">
+        <div class="safe-area"></div>
+        
+        <div class="flyer-header">
+            <h1>Special Offer</h1>
+            <p>Elevate your print graphics today.</p>
+        </div>
+        
+        <div class="flyer-body">
+            <h2 style="font-size: 18pt; color: var(--brand-primary); margin-bottom: 0.1in;">Why choose 1FBR Studio?</h2>
+            <p style="font-size: 11pt; line-height: 1.5; color: #444;">We provide end-to-end design automation for both your online publications and your print-ready physical marketing materials.</p>
+            
+            <ul class="feature-list">
+                <li>Automated Bleed & Crop Marks</li>
+                <li>CMYK Color Profiles Ready</li>
+                <li>Multi-Tenant Brand System</li>
+                <li>High Resolution PDF Exports</li>
+            </ul>
+        </div>
+        
+        <div class="flyer-footer">
+            <p>Call us today to schedule a demo:</p>
+            <div class="phone">1-800-1FBR-STUDIO</div>
+            <p>www.1fbr.com/studio</p>
+        </div>
+    </div>
+
+</body>
+</html>

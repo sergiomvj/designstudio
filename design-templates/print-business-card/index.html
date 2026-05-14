@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Card Print Template</title>
+    <style>
+        /*
+          Setup de impressão com CSS Paged Media.
+          Padrão US Business Card (3.5in x 2in) com 0.125in de bleed.
+        */
+        @page {
+            size: 3.75in 2.25in; /* 3.5 + 0.125 bleed em cada lado */
+            margin: 0;
+            /* Marcas de corte dependem do gerador de PDF, usaremos um truque visual se necessário */
+        }
+
+        :root {
+            --brand-primary: #1E3A8A; /* Azul Corporativo 1FBR */
+            --brand-secondary: #EAB308; /* Amarelo / Gold */
+            --brand-font: 'Inter', sans-serif;
+            --bleed-margin: 0.125in;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--brand-font);
+            background-color: #fff;
+            color: #333;
+            /* O body em si é a página, ou usamos um wrapper para simular a sangria no browser */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        /* Container que simula a página impressa com bleed */
+        .card-canvas {
+            width: 3.75in;
+            height: 2.25in;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* Safe area (dentro do cartão final após corte) */
+        .safe-area {
+            position: absolute;
+            top: var(--bleed-margin);
+            left: var(--bleed-margin);
+            right: var(--bleed-margin);
+            bottom: var(--bleed-margin);
+            border: 1px dashed rgba(0,0,0,0.2); /* Linha de corte visual na tela */
+            padding: 0.2in;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Esconder borda pontilhada ao imprimir */
+        @media print {
+            body {
+                background: none;
+            }
+            .card-canvas {
+                box-shadow: none;
+                width: 100%;
+                height: 100%;
+            }
+            .safe-area {
+                border: none;
+            }
+        }
+
+        /* Conteúdo do Cartão */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 14pt;
+            color: var(--brand-primary);
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 7pt;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        .person-details {
+            margin-top: auto;
+        }
+
+        .name {
+            font-size: 12pt;
+            font-weight: bold;
+            color: var(--brand-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 8pt;
+            color: var(--brand-secondary);
+            font-weight: 600;
+        }
+
+        /* Elemento de design sangrando */
+        .accent-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.25in;
+            background: var(--brand-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-canvas">
+        <div class="accent-bar"></div>
+        <div class="safe-area">
+            <div class="header">
+                <div class="logo">1FBR Studio</div>
+                <div class="contact-info">
+                    123 Publisher Ave.<br>
+                    Orlando, FL 32801<br>
+                    +1 (555) 123-4567<br>
+                    hello@1fbr.com
+                </div>
+            </div>
+            
+            <div class="person-details">
+                <div class="name">John Doe</div>
+                <div class="title">Chief Editor</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

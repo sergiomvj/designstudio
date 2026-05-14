@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Banner Template</title>
+    <style>
+        :root {
+            --brand-primary: #1E3A8A;
+            --brand-secondary: #EAB308;
+            --brand-font: 'Inter', sans-serif;
+            
+            /* Dimensões padrão - O backend injetará os tamanhos do banner via inline style */
+            --banner-width: 300px;
+            --banner-height: 250px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--brand-font);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #222;
+        }
+
+        /* Container do Banner com Container Queries */
+        .banner-container {
+            width: var(--banner-width);
+            height: var(--banner-height);
+            background: var(--brand-primary);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            container-type: size; /* Permite consultas com base no tamanho deste elemento */
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .banner-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(30,58,138,1) 0%, rgba(10,25,60,1) 100%);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            padding: 15px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .headline {
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .cta {
+            background: var(--brand-secondary);
+            color: #000;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        /* Responsividade Interna via @container */
+
+        /* Para Banners Retangulares Médios (ex: 300x250) */
+        @container (min-width: 250px) and (min-height: 200px) and (max-width: 400px) {
+            .headline {
+                font-size: 24px;
+                margin-top: 20px;
+            }
+            .cta {
+                padding: 10px 20px;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Para Leaderboards (ex: 728x90) */
+        @container (min-width: 600px) and (max-height: 150px) {
+            .content {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                padding: 0 30px;
+            }
+            .headline {
+                font-size: 20px;
+                margin: 0;
+            }
+            .cta {
+                padding: 8px 24px;
+                margin: 0;
+            }
+        }
+
+        /* Para Skyscraper (ex: 160x600) */
+        @container (max-width: 200px) and (min-height: 500px) {
+            .headline {
+                font-size: 22px;
+                margin-top: 40px;
+            }
+            .cta {
+                padding: 12px 15px;
+                font-size: 12px;
+                margin-bottom: 40px;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Exemplo: Você pode testar alterando o width/height do style inline -->
+    <div class="banner-container" style="--banner-width: 300px; --banner-height: 250px;">
+        <div class="banner-bg"></div>
+        <div class="content">
+            <div class="headline">Design<br>System<br>At Scale</div>
+            <div class="cta">Click Here</div>
+        </div>
+    </div>
+
+</body>
+</html>
