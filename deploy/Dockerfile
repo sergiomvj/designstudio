@@ -77,6 +77,7 @@ COPY --from=build --chown=open-design:open-design /app/deploy/daemon ./apps/daem
 COPY --from=build --chown=open-design:open-design /app/apps/web/out ./apps/web/out
 COPY --chown=open-design:open-design skills ./skills
 COPY --chown=open-design:open-design design-systems ./design-systems
+COPY --chown=open-design:open-design design-templates ./design-templates
 COPY --chown=open-design:open-design craft ./craft
 COPY --chown=open-design:open-design prompt-templates ./prompt-templates
 COPY --chown=open-design:open-design assets/frames ./assets/frames

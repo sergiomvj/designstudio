@@ -1,0 +1,39 @@
+{
+  "services": [
+    {
+      "type": "app",
+      "data": {
+        "projectName": "designstudio",
+        "serviceName": "fbr-designstudio",
+        "source": {
+          "type": "github",
+          "github": {
+            "owner": "sergiomvj",
+            "repo": "designstudio",
+            "branch": "main",
+            "path": "/",
+            "autoDeploy": true
+          }
+        },
+        "build": {
+          "type": "dockerfile",
+          "dockerfile": "deploy/Dockerfile"
+        },
+        "env": "NODE_ENV=production\nOD_PORT=7456\nOD_BIND_HOST=0.0.0.0\nOPEN_DESIGN_ALLOWED_ORIGINS=",
+        "ports": [
+          {
+            "published": 7456,
+            "target": 7456
+          }
+        ],
+        "mounts": [
+          {
+            "type": "volume",
+            "name": "od_data",
+            "mountPath": "/app/.od"
+          }
+        ]
+      }
+    }
+  ]
+}
