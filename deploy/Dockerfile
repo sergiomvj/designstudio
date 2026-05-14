@@ -93,6 +93,6 @@ ENV OD_PORT=7456
 
 EXPOSE 7456
 
-USER open-design
+# USER open-design
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["node", "apps/daemon/dist/cli.js", "--no-open"]
