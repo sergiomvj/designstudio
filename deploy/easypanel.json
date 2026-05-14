@@ -19,7 +19,7 @@
           "type": "dockerfile",
           "dockerfile": "deploy/Dockerfile"
         },
-        "env": "NODE_ENV=production\nOD_PORT=80\nOD_BIND_HOST=0.0.0.0\nOPEN_DESIGN_ALLOWED_ORIGINS=",
+        "env": "NODE_ENV=production\nOD_PORT=80\nOD_BIND_HOST=0.0.0.0\nHOME=/app/.od\nANTHROPIC_API_KEY=\nOPENAI_API_KEY=\nGOOGLE_API_KEY=\nKIMI_API_KEY=\nQWEN_API_KEY=\nDEEPSEEK_API_KEY=\nQODER_API_KEY=\nOPENCODE_API_KEY=\nOPEN_DESIGN_ALLOWED_ORIGINS=",
         "ports": [
           {
             "published": 80,

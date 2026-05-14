@@ -75,6 +75,21 @@ RUN apk add --no-cache tini && \
 WORKDIR /app
 COPY --from=build --chown=open-design:open-design /app/deploy/daemon ./apps/daemon
 COPY --from=build --chown=open-design:open-design /app/apps/web/out ./apps/web/out
+
+# Instalar Agentes CLI globais
+RUN npm install -g \
+    @anthropic-ai/claude-code \
+    @openai/codex \
+    @google/gemini-cli \
+    kimiclaude \
+    @qwen-code/qwen-code \
+    opencode-ai \
+    seekcode \
+    @qoder-ai/qodercli && \
+    npm cache clean --force
+
+# Configurar HOME para o volume persistente para manter sessões dos CLIs
+ENV HOME=/app/.od
 COPY --chown=open-design:open-design skills ./skills
 COPY --chown=open-design:open-design design-systems ./design-systems
 COPY --chown=open-design:open-design design-templates ./design-templates
