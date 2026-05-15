@@ -76,8 +76,9 @@ WORKDIR /app
 COPY --from=build --chown=open-design:open-design /app/deploy/daemon ./apps/daemon
 COPY --from=build --chown=open-design:open-design /app/apps/web/out ./apps/web/out
 
-# Instalar Agentes CLI globais
-RUN npm install -g \
+# Instalar dependências de sistema (Git é essencial para os agentes) e Agentes CLI
+RUN apk add --no-cache git && \
+    npm install -g \
     @anthropic-ai/claude-code \
     @openai/codex \
     @google/gemini-cli \

@@ -930,7 +930,7 @@ export function SettingsDialog({
     try {
       const result = await testApiProvider(
         {
-          protocol: apiProtocol,
+          protocol: apiProtocol as any,
           baseUrl: cfg.baseUrl,
           apiKey: cfg.apiKey,
           model: cfg.model,
@@ -950,7 +950,7 @@ export function SettingsDialog({
       trackSettingsByokTestResult(analytics.track, {
         page: 'settings',
         area: 'execution_model',
-        provider_id: apiProtocol,
+        provider_id: apiProtocol as any,
         result: result.ok ? 'success' : 'failed',
         ...(result.ok ? {} : { error_code: result.kind || 'UNKNOWN' }),
         duration_ms: Math.round(performance.now() - startedAt),
@@ -974,7 +974,7 @@ export function SettingsDialog({
       trackSettingsByokTestResult(analytics.track, {
         page: 'settings',
         area: 'execution_model',
-        provider_id: apiProtocol,
+        provider_id: apiProtocol as any,
         result: 'failed',
         error_code: err instanceof Error ? err.name : 'UNKNOWN',
         duration_ms: Math.round(performance.now() - startedAt),
@@ -1025,7 +1025,7 @@ export function SettingsDialog({
     try {
       const result = await fetchProviderModels(
         {
-          protocol: apiProtocol,
+          protocol: apiProtocol as any,
           baseUrl: cfg.baseUrl,
           apiKey: cfg.apiKey,
           ...(apiProtocol === 'azure' && cfg.apiVersion?.trim()
@@ -1746,8 +1746,8 @@ export function SettingsDialog({
                           area: 'execution_model',
                           element: 'byok_provider_option',
                           action: 'select_byok_provider',
-                          provider_id: tab.id,
-                          is_selected: apiProtocol === tab.id,
+                          provider_id: tab.id as any,
+                          is_selected: (apiProtocol as any) === tab.id,
                         });
                         setApiProtocol(tab.id);
                       }}
@@ -2333,7 +2333,7 @@ export function SettingsDialog({
                         element: 'byok_field',
                         action: 'focus_byok_field',
                         field_id: 'api_key',
-                        provider_id: apiProtocol,
+                        provider_id: apiProtocol as any,
                         has_value: Boolean(cfg.apiKey?.trim()),
                       });
                     }}
@@ -2366,7 +2366,7 @@ export function SettingsDialog({
                       element: 'byok_field',
                       action: 'focus_byok_field',
                       field_id: 'model',
-                      provider_id: apiProtocol,
+                      provider_id: apiProtocol as any,
                       has_value: Boolean(cfg.model?.trim()),
                     });
                   }}
@@ -2431,7 +2431,7 @@ export function SettingsDialog({
                       element: 'byok_field',
                       action: 'focus_byok_field',
                       field_id: 'base_url',
-                      provider_id: apiProtocol,
+                      provider_id: apiProtocol as any,
                       has_value: Boolean(cfg.baseUrl?.trim()),
                     });
                   }}
