@@ -441,6 +441,10 @@ function buildProviderCall(input: ProviderTestRequest): ProviderCallShape {
         headers: {
           'content-type': 'application/json',
           authorization: `Bearer ${apiKey}`,
+          ...(input.protocol === 'openrouter' ? {
+            'HTTP-Referer': 'https://github.com/sergiomvj/designstudio',
+            'X-Title': 'FBR-DesignStudio',
+          } : {}),
         },
         body: {
           model,

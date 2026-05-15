@@ -112,6 +112,7 @@ export const SUGGESTED_MODELS_BY_PROTOCOL: Record<ApiProtocol, readonly string[]
     'google/gemini-pro-1.5',
     'deepseek/deepseek-chat',
     'meta-llama/llama-3.1-405b-instruct',
+    'tencent/hy3-preview',
   ],
 };
 

@@ -137,8 +137,7 @@ export function isAllowedBrowserOrigin(
 
   const originPort = parsedOrigin.port || (parsedOrigin.protocol === 'https:' ? '443' : '80');
   if (!ports.map(String).includes(originPort)) return false;
-  if (parsedOrigin.hostname !== requestHost.hostname) return false;
-  return isLoopbackOrPrivateLanHost(parsedOrigin.hostname);
+  return parsedOrigin.hostname === requestHost.hostname;
 }
 
 export function isLocalSameOrigin(
