@@ -440,14 +440,14 @@ function buildProviderCall(input: ProviderTestRequest): ProviderCallShape {
         url: appendVersionedApiPath(baseUrl, '/chat/completions'),
         headers: {
           'content-type': 'application/json',
-          authorization: `Bearer ${apiKey}`,
+          authorization: `Bearer ${apiKey.trim()}`,
           ...(input.protocol === 'openrouter' ? {
-            'HTTP-Referer': 'https://github.com/sergiomvj/designstudio',
+            'Referer': 'https://github.com/sergiomvj/designstudio',
             'X-Title': 'FBR-DesignStudio',
           } : {}),
         },
         body: {
-          model,
+          model: model.trim(),
           max_tokens: PROVIDER_MAX_TOKENS,
           messages: [{ role: 'user', content: SMOKE_PROMPT }],
           stream: false,
