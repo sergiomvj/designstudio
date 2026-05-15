@@ -232,10 +232,10 @@ function inspectProviderCompletion(
   const obj = data && typeof data === 'object' ? data as Record<string, unknown> : null;
   if (!obj) return { valid: false };
 
-  if (protocol === 'openai' || protocol === 'azure') {
+  if (protocol === 'openai' || protocol === 'azure' || protocol === 'openrouter') {
     const responseModel = typeof obj.model === 'string' ? obj.model : '';
     if (
-      protocol === 'openai' &&
+      (protocol === 'openai' || protocol === 'openrouter') &&
       enforceResponseModel &&
       responseModel &&
       requestedModel &&
@@ -352,7 +352,7 @@ async function validateLocalOpenAiModel(
   signal: AbortSignal,
   start: number,
 ): Promise<ConnectionTestResponse | null> {
-  if (input.protocol !== 'openai' || !isLoopbackApiHost(parsed.hostname)) {
+  if ((input.protocol !== 'openai' && input.protocol !== 'openrouter') || !isLoopbackApiHost(parsed.hostname)) {
     return null;
   }
 
@@ -434,6 +434,7 @@ function buildProviderCall(input: ProviderTestRequest): ProviderCallShape {
           return '';
         },
       };
+    case 'openrouter':
     case 'openai':
       return {
         url: appendVersionedApiPath(baseUrl, '/chat/completions'),

@@ -196,6 +196,19 @@ export const KNOWN_PROVIDERS: KnownProvider[] = [
     models: ['mimo-v2.5-pro'],
   },
   {
+    label: 'OpenRouter',
+    protocol: 'openrouter',
+    baseUrl: 'https://openrouter.ai/api/v1',
+    model: 'anthropic/claude-3.5-sonnet',
+    models: [
+      'anthropic/claude-3.5-sonnet',
+      'openai/gpt-4o',
+      'google/gemini-pro-1.5',
+      'deepseek/deepseek-chat',
+      'meta-llama/llama-3.1-405b-instruct',
+    ],
+  },
+  {
     label: 'Ollama Cloud',
     protocol: 'ollama',
     baseUrl: 'https://ollama.com',

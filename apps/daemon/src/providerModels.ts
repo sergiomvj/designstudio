@@ -149,7 +149,7 @@ function extractGoogleModels(data: unknown): ProviderModelOption[] {
 }
 
 function providerModelsUrl(protocol: ConnectionTestProtocol, baseUrl: string, apiKey: string): string {
-  if (protocol === 'openai') return appendVersionedApiPath(baseUrl, '/models');
+  if (protocol === 'openai' || protocol === 'openrouter') return appendVersionedApiPath(baseUrl, '/models');
   if (protocol === 'anthropic') {
     const url = new URL(appendVersionedApiPath(baseUrl, '/models'));
     url.searchParams.set('limit', '1000');
@@ -167,7 +167,7 @@ function providerModelsHeaders(
   protocol: ConnectionTestProtocol,
   apiKey: string,
 ): Record<string, string> {
-  if (protocol === 'openai') return { authorization: `Bearer ${apiKey}` };
+  if (protocol === 'openai' || protocol === 'openrouter') return { authorization: `Bearer ${apiKey}` };
   if (protocol === 'anthropic') {
     return {
       'x-api-key': apiKey,
@@ -178,7 +178,7 @@ function providerModelsHeaders(
 }
 
 function extractModels(protocol: ConnectionTestProtocol, data: unknown): ProviderModelOption[] {
-  if (protocol === 'openai') return extractOpenAiModels(data);
+  if (protocol === 'openai' || protocol === 'openrouter') return extractOpenAiModels(data);
   if (protocol === 'anthropic') return extractAnthropicModels(data);
   if (protocol === 'google') return extractGoogleModels(data);
   return [];

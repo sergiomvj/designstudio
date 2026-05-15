@@ -250,13 +250,13 @@ export function registerChatRoutes(app: Express, ctx: RegisterChatRoutesDeps) {
     const protocol = body.protocol;
     if (
       typeof protocol !== 'string' ||
-      !['anthropic', 'openai', 'azure', 'google', 'ollama'].includes(protocol)
+      !['anthropic', 'openai', 'azure', 'google', 'ollama', 'openrouter'].includes(protocol)
     ) {
       return sendApiError(
         res,
         400,
         'BAD_REQUEST',
-        'protocol must be one of anthropic|openai|azure|google|ollama',
+        'protocol must be one of anthropic|openai|azure|google|ollama|openrouter',
       );
     }
     if (
@@ -311,13 +311,13 @@ export function registerChatRoutes(app: Express, ctx: RegisterChatRoutesDeps) {
         const protocol = body.protocol;
         if (
           typeof protocol !== 'string' ||
-          !['anthropic', 'openai', 'azure', 'google', 'ollama'].includes(protocol)
+          !['anthropic', 'openai', 'azure', 'google', 'ollama', 'openrouter'].includes(protocol)
         ) {
           return sendApiError(
             res,
             400,
             'BAD_REQUEST',
-            'protocol must be one of anthropic|openai|azure|google|ollama',
+            'protocol must be one of anthropic|openai|azure|google|ollama|openrouter',
           );
         }
         if (

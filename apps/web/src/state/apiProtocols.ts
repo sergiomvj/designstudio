@@ -106,6 +106,13 @@ export const SUGGESTED_MODELS_BY_PROTOCOL: Record<ApiProtocol, readonly string[]
     'qwen3.5:397b',
     'rnj-1:8b',
   ],
+  openrouter: [
+    'anthropic/claude-3.5-sonnet',
+    'openai/gpt-4o',
+    'google/gemini-pro-1.5',
+    'deepseek/deepseek-chat',
+    'meta-llama/llama-3.1-405b-instruct',
+  ],
 };
 
 // "Fast / cheap" model recommendation for each protocol. Used by the
@@ -123,6 +130,7 @@ export const FAST_MODEL_BY_PROTOCOL: Record<ApiProtocol, string> = {
   // pick produces a deterministic answer; users who care can override
   // through the Memory model picker.
   ollama: 'gemma3:4b',
+  openrouter: 'anthropic/claude-3.5-sonnet',
 };
 
 export const API_PROTOCOL_TABS: ReadonlyArray<{
@@ -134,6 +142,7 @@ export const API_PROTOCOL_TABS: ReadonlyArray<{
   { id: 'azure', title: 'Azure OpenAI' },
   { id: 'google', title: 'Google Gemini' },
   { id: 'ollama', title: 'Ollama Cloud' },
+  { id: 'openrouter', title: 'OpenRouter' },
 ];
 
 export const API_PROTOCOL_LABELS: Record<ApiProtocol, string> = {
@@ -142,6 +151,7 @@ export const API_PROTOCOL_LABELS: Record<ApiProtocol, string> = {
   azure: 'Azure OpenAI',
   google: 'Google Gemini',
   ollama: 'Ollama Cloud API',
+  openrouter: 'OpenRouter API',
 };
 
 export const API_KEY_PLACEHOLDERS: Record<ApiProtocol, string> = {
@@ -150,6 +160,7 @@ export const API_KEY_PLACEHOLDERS: Record<ApiProtocol, string> = {
   azure: 'azure key',
   google: 'AIza...',
   ollama: 'Ollama API key',
+  openrouter: 'sk-or-v1-...',
 };
 
 // Default base URL the daemon assumes when the user leaves the field
@@ -161,4 +172,5 @@ export const DEFAULT_BASE_URL_BY_PROTOCOL: Record<ApiProtocol, string> = {
   azure: '',
   google: 'https://generativelanguage.googleapis.com',
   ollama: 'https://ollama.com',
+  openrouter: 'https://openrouter.ai/api/v1',
 };
